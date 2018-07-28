@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import PaymentSheet from './PaymentSheet';
+import TextField from 'material-ui/TextField';
 
 class ProductDisplay extends Component {
   constructor(props) {
@@ -22,6 +23,10 @@ class ProductDisplay extends Component {
         contact: "1234567890",
         email: "johndoe@example.com",
         duration: "5 days",
+        warranty:false,
+        weartear:true,
+        additionalInfo: "Lorem ipsum"
+
     };
   }
 
@@ -31,6 +36,10 @@ class ProductDisplay extends Component {
 
   showPaymentSheet = () => {
       this.setState({PaymentSheetVisibility: true});
+  }
+
+  closePayment = () => {
+    this.setState({PaymentSheetVisibility: false});
   }
 
   render() {
@@ -52,12 +61,15 @@ class ProductDisplay extends Component {
         username,
         contact,
         email,
-        duration
+        duration,
+        warranty,
+        weartear,
+        additionalInfo
       } = this.state;
 
     return (
     <MuiThemeProvider>
-      <div className="mainBackground sellWrapper">
+      <div className="mainBackground sellWrapper ">
         {/* {this.props.location.state ? ( */}
           <div>
             <div className="appbar">
@@ -75,62 +87,60 @@ class ProductDisplay extends Component {
               )}
             </div>
 
-            <div id="centerTotal">
+            <div id="centerTotal productDisplayDiv">
+
               <div className="imageHolder">
-                <img id="textbook" src={imageurl} alt="Fetching error" />
+                <img id="productItemDisplay" src={imageurl} alt="Fetching error" />
               </div>
-              <div className="vr" />
 
               <div className="detailCard">
-                <div id="textName">{title}</div>
+                <h2>{title}</h2>
                 <div id="category">Category: {category}</div>
                 <div id="amount">
-                  <span id="priceTag">Price</span>: Rs {price}
+                  <span id="priceTag">Price</span>: Rs {price} per day
                 </div>
-                <div className="details">
-                  Description goes here
+                <div className="availability">
+                  Availability: Available
                 </div>
                 <br/><br/>
                 <div className="details">
                   Duration: {duration}
                 </div><br/><br/>
                 <div className="sellerButtons">
-                    <RaisedButton label="Seller info" backgroundColor="lawngreen" onClick={()=>{this.toggleSellerInfoHidden()}}/>
                     <RaisedButton label="Rent now" backgroundColor="lawngreen" onClick={()=>{this.showPaymentSheet()}}/>
                 </div>
               </div>
-              {!this.state.hidden ? (
-            <div id="sellerInfoCard">
-                <h2>Seller Info</h2>
-                <ul>
-                <li>
-                    Name: <span>{username}</span>
-                </li>
-                <li>
-                    Semester: <span>4</span>
-                </li>
-                <li>
-                    Branch: <span>Computer Science</span>
-                </li>
-                <li>
-                    Mobile No: <span>{contact}</span>
-                </li>
-                <li>
-                    Email:
-                    <span>{email}</span>
-                </li>
-                <RaisedButton label="Done" backgroundColor="skyblue" onClick={()=>{this.toggleSellerInfoHidden()}}/>
-                </ul>
-              </div> ) : (
-                  null
-              )}
+
+              <br/>
+              <div style={{height: '100px'}} />
+              <hr className="ruler" />
+              <br />
+
+              <div style={{color: 'rgba(0,0,0,0.87)', flexDirection: 'column', width: '80%', marginLeft: '150px'}}>
+                    <h2>Owner: {username}</h2>
+                    <br/>
+                    <p>{additionalInfo}</p>
+                    <br/>
+                    <p>Is warranty applicable? {warranty? 'Yes' : 'No'} </p>
+                    <p>Is there wear and tear? {weartear? 'Yes' : 'No'} </p>
+                    <p>Is warranty applicable? {warranty? 'Yes' : 'No'} </p>
+                    <TextField
+                      style={{ width: "65%" }}
+                      floatingLabelText="Do you have a question?"
+                      multiLine={true}
+                      rows={2}
+                    />
+                    <br />
+                    <br /><br/><br/>
+              </div>
+
             </div>
           </div>
         {/* ) : (
           <h1 style={{ color: "white" }}>403 Forbidden</h1>
         )} */}
       </div>
-      <PaymentSheet visible={this.state.PaymentSheetVisibility} />
+      <PaymentSheet visible={this.state.PaymentSheetVisibility} price={price} closer={this.closePayment}/>
       </MuiThemeProvider>
     );
   }

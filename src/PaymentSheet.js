@@ -10,28 +10,35 @@ import moment from 'moment';
 class PaymentSheet extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    this.state = {
+        days: 0,
+    };
   }
 
   handleSelectRange = (range) => {
-    let days = moment(range.endDate).diff(moment(range.startDate),'days');
+      this.setState({
+          days: moment(range.endDate).diff(moment(range.startDate),'days')
+      });
   }
 
   render() {
     // const { imageurl, title, category, price } = this.props.details;
-    const { visible } = this.props;
+    const { visible, price, closer } = this.props;
+    const totalPrice = price * this.state.days;
 
     return (
-        <div>
+        <div onClick={closer}>
             {visible ? (
             <div className="actionSheet">
                 <MuiThemeProvider>
-                    <div className="actionSheetContent">
+                    <div className="actionSheetContent" onClick={(e) => {e.stopPropagation()}}>
                         <h2> Confirm rent </h2>
                         <DateRange
                             onInit={this.handleSelectRange}
                             onChange={this.handleSelectRange}
-                        /><br/><br/>
+                        />
+                        <br/><br/>
+                        <h3>Total price: {totalPrice} </h3>
                         <RaisedButton label="Proceed to payment" primary={true}/>
                     </div>
                 </MuiThemeProvider>
