@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Provider } from "react-redux";
 import Store from "./redux/Store";
-// import AddProduct from "./components/AddProduct";
+import AddProduct from "./AddProduct";
 import Home from "./Home";
 import ProductDisplay from "./ProductDisplay";
 import SearchPage from "./searchPage";
@@ -14,7 +14,7 @@ const App = () => (
       <div>
         <Route exact path="/" component={Home} />
         <Route path="/search" component={SearchPage} />
-        {/* <Route path="/addproduct" component={AddProduct} /> */}
+        <Route path="/addproduct" component={AddProduct} />
         <Route path="/productdisplay" component={ProductDisplay} />
       </div>
     </Router>
