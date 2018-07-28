@@ -41,16 +41,17 @@ class Home extends Component {
               </span>
               <center>
                 <h1 id="head">
-                  Title goes here
+                  ShareGoods
                 </h1>
               </center>
               <div id="homeScreenButtons">
-                <FlatButton label="Adventure" primary={true} className="buttonWithBorder" onClick={()=>{}}/>
-                <FlatButton label="Tools" primary={true} onClick={()=>{}}/>
-                <FlatButton label="Digital" primary={true} onClick={()=>{}}/>
-                <FlatButton label="Cycles" primary={true} onClick={()=>{}}/>
+                <button  class="buttonWithBorder" onClick={()=>{}}>Adventure </button>
+                <button  class="buttonWithBorder" onClick={()=>{}}>Construction</button>
+                <button class="buttonWithBorder" onClick={()=>{}}>test</button>
+                <button class="buttonWithBorder" onClick={()=>{}}>test</button>
               </div>
               <form onSubmit={this.search}>
+                <i class="material-icons">search</i>
                 <input id="input" type="text" placeholder="Search for anything" />
               </form>
               <div id="tagLine">
