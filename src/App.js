@@ -5,7 +5,7 @@ import Store from "./redux/Store";
 // import AddProduct from "./components/AddProduct";
 import Home from "./Home";
 // import ProductDisplay from "./components/ProductDisplay";
-// import SearchPage from "./components/searchPage";
+import SearchPage from "./searchPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const App = () => (
@@ -13,8 +13,8 @@ const App = () => (
     <Router>
       <div>
         <Route exact path="/" component={Home} />
-        {/* <Route path="/addproduct" component={AddProduct} />
         <Route path="/search" component={SearchPage} />
+        {/* <Route path="/addproduct" component={AddProduct} />
         <Route path="/productdisplay" component={ProductDisplay} /> */}
       </div>
     </Router>
