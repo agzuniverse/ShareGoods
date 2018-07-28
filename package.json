@@ -3,14 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
+    "eslint": "^4.19.1",
+    "firebase": "^4.12.0",
+    "material-ui": "^0.20.0",
+    "prettier": "^1.12.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-icons": "^2.2.7",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^1.1.0",
+    "redux": "^3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "./node_modules/.bin/eslint src/ && ./node_modules/.bin/prettier --list-different src/**/*.js && ./node_modules/.bin/prettier --list-different src/**/*.css && ./node_modules/.bin/prettier --list-different src/*.js && ./node_modules/.bin/prettier --list-different src/*.css && react-scripts test --env=jsdom",
+    "jest": "react-scripts test --env=jsdom",
+    "prettier": "./node_modules/.bin/prettier --write ./src/*.js && ./node_modules/.bin/prettier --write ./src/*.css && ./node_modules/.bin/prettier --write ./src/**/*.js && ./node_modules/.bin/prettier --write ./src/**/*.css",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-standard": "^3.1.0",
+    "react-test-renderer": "^16.4.0"
   }
 }
