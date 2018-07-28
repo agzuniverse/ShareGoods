@@ -41,7 +41,7 @@ class Home extends Component {
               </span>
               <center>
                 <h1 id="head">
-                  ShareGoods
+                  Share<span class="green">Goods</span>
                 </h1>
               </center>
               <div id="homeScreenButtons">
@@ -55,7 +55,7 @@ class Home extends Component {
                 <input id="input" type="text" placeholder="Search for anything" />
               </form>
               <div id="tagLine">
-                Rent stuff
+                Peer to Peer rental platform that delivers to <br/>your doorstep
               </div>
               <div id="bottom">
                   <span>FOOTER GOES HERE</span>

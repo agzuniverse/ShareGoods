@@ -25,20 +25,20 @@ html {
 
 .buttonWithBorder {
   border-width: 1px;
-  border-color: #212121;
+  border-color: #00a745;
   border-style: solid;
-  border-color: rgb(0, 188, 212);
+  border-color: #00a745;
   border-width: 0.2px;
   padding: 11px;
   border-radius: 0px;
   background-color: white;
-  color: rgb(0, 188, 212);
+  color: #00a745;
   margin: 10px;
   font-size: 1.4em;
   outline: none;
   }
   .buttonWithBorder:hover{
-    background-color: rgb(0, 188, 212);
+    background-color:#00a745;
     color: white;
   }
 
@@ -50,7 +50,7 @@ html {
   left: 0;
   right: 0;
   margin: auto;
-  font-size: 37px;
+  font-size: 47px;
 }
 #watch {
   color: #00c853;
@@ -58,27 +58,28 @@ html {
 
 #input {
   position: absolute;
-  top: 13em;
+  top: 428px;
   left: 0;
   right: 0;
   margin: auto;
-  font-size: 2em;
+  font-size: 1.5em;
   outline: 0;
   border: 0;
-  padding: 16px;
+  padding: 16px 80px;
   width: 400px;
+  border: solid .2px #adadad;
 }
 : placeholder{
   color: white;
 }
 
 #homeScreenButtons {
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: 9;
-  top: 350px;
-  left: 34em;
+    align-items: center;
+    position: absolute;
+    z-index: 9;
+    top: 350px;
+    left: 123px;
+    margin: 0 auto;
   
 }
 
@@ -139,6 +140,9 @@ footer {
   overflow: hidden;
 }
 
+.green{
+  color: #00a745;
+}
 .SideMenu {
   display: grid;
   grid-template-columns: 1fr;
@@ -157,7 +161,7 @@ footer {
   line-height: 25px;
 }
 #watchPart {
-  color: lawngreen;
+  color: green;
 }
 
 .dropDownMenu {
