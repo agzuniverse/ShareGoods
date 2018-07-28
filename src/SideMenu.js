@@ -86,7 +86,7 @@ class SideMenu extends Component {
               {this.props.uid !== "" && this.props.uid !== null ? (
                 <Link to="/user">
                   <RaisedButton backgroundColor="lawngreen" fullWidth>
-                    Rent item
+                   Give item for rent
                   </RaisedButton>
                 </Link>
               ) : (
@@ -95,7 +95,7 @@ class SideMenu extends Component {
                   fullWidth
                   onClick={this.login}
                 >
-                  Rent item
+                  Give item for rent
                 </RaisedButton>
               )}
             </div>

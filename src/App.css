@@ -370,6 +370,29 @@ footer {
   height: auto;
 }
 
+.actionSheet {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  left:0px;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actionSheetContent {
+  height: 70vh;
+  width: 60vw;
+  background-color: rgba(255, 255, 255, 0.87);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  flex-direction: column;
+}
+
 .detailCard {
   background-color: white;
   width: 34%;
@@ -408,10 +431,16 @@ footer {
   font-size: 33px;
 }
 
-#details {
-  position: absolute;
-  color: #212121;
+.details {
+  color: rgba(0, 0, 0, 0.87);
   float: left;
+}
+
+.sellerButtons {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #sellerInfo {

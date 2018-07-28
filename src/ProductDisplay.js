@@ -4,20 +4,33 @@ import "./App.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 // import GetAuthDetails from "./GetAuthDetails";
+import RaisedButton from 'material-ui/RaisedButton';
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import PaymentSheet from './PaymentSheet';
 
 class ProductDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
         hidden: true,
+        PaymentSheetVisibility: false,
         imageurl: "http://www.kmart.com.au/wcsstore/Kmart/images/ncatalog/f/6/42509196-1-f.jpg",
         title: "Blue tent",
         category: "Adventure",
         price: "399",
         username: "John Doe",
         contact: "1234567890",
-        email: "johndoe@example.com"
+        email: "johndoe@example.com",
+        duration: "5 days",
     };
+  }
+
+  toggleSellerInfoHidden = () => {
+    this.setState({ hidden: !this.state.hidden });
+  };
+
+  showPaymentSheet = () => {
+      this.setState({PaymentSheetVisibility: true});
   }
 
   render() {
@@ -38,10 +51,12 @@ class ProductDisplay extends Component {
         price,
         username,
         contact,
-        email
+        email,
+        duration
       } = this.state;
 
     return (
+    <MuiThemeProvider>
       <div className="mainBackground sellWrapper">
         {/* {this.props.location.state ? ( */}
           <div>
@@ -67,22 +82,23 @@ class ProductDisplay extends Component {
 
               <div className="detailCard">
                 <div id="textName">{title}</div>
-                <div id="category">{category}</div>
+                <div id="category">Category: {category}</div>
                 <div id="amount">
-                  <span id="priceTag">Price</span>: Rs {price}{" "}
+                  <span id="priceTag">Price</span>: Rs {price}
                 </div>
-                <div id="details">
+                <div className="details">
                   Description goes here
                 </div>
-                <button
-                  type="submit"
-                  id="sellerInfo"
-                  onClick={() => this.toggleSellerInfoHidden()}
-                >
-                  Seller Info
-                </button>
+                <br/><br/>
+                <div className="details">
+                  Duration: {duration}
+                </div><br/><br/>
+                <div className="sellerButtons">
+                    <RaisedButton label="Seller info" backgroundColor="lawngreen" onClick={()=>{this.toggleSellerInfoHidden()}}/>
+                    <RaisedButton label="Rent now" backgroundColor="lawngreen" onClick={()=>{this.showPaymentSheet()}}/>
+                </div>
               </div>
-
+              {!this.state.hidden ? (
             <div id="sellerInfoCard">
                 <h2>Seller Info</h2>
                 <ul>
@@ -102,20 +118,19 @@ class ProductDisplay extends Component {
                     Email:
                     <span>{email}</span>
                 </li>
-                <button
-                    type="submit"
-                    onClick={() => {}}
-                >
-                    Done
-                </button>
+                <RaisedButton label="Done" backgroundColor="skyblue" onClick={()=>{this.toggleSellerInfoHidden()}}/>
                 </ul>
-            </div>
+              </div> ) : (
+                  null
+              )}
             </div>
           </div>
         {/* ) : (
           <h1 style={{ color: "white" }}>403 Forbidden</h1>
         )} */}
       </div>
+      <PaymentSheet visible={this.state.PaymentSheetVisibility} />
+      </MuiThemeProvider>
     );
   }
 }
