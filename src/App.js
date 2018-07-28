@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Provider } from "react-redux";
+import Store from "./redux/Store";
+// import AddProduct from "./components/AddProduct";
+import Home from "./Home";
+// import ProductDisplay from "./components/ProductDisplay";
+// import SearchPage from "./components/searchPage";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+const App = () => (
+  <Provider store={Store}>
+    <Router>
+      <div>
+        <Route exact path="/" component={Home} />
+        {/* <Route path="/addproduct" component={AddProduct} />
+        <Route path="/search" component={SearchPage} />
+        <Route path="/productdisplay" component={ProductDisplay} /> */}
       </div>
-    );
-  }
-}
+    </Router>
+  </Provider>
+);
 
 export default App;
