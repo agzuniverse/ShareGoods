@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import Store from "./redux/Store";
 // import AddProduct from "./components/AddProduct";
 import Home from "./Home";
-// import ProductDisplay from "./components/ProductDisplay";
+import ProductDisplay from "./ProductDisplay";
 import SearchPage from "./searchPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -14,8 +14,8 @@ const App = () => (
       <div>
         <Route exact path="/" component={Home} />
         <Route path="/search" component={SearchPage} />
-        {/* <Route path="/addproduct" component={AddProduct} />
-        <Route path="/productdisplay" component={ProductDisplay} /> */}
+        {/* <Route path="/addproduct" component={AddProduct} /> */}
+        <Route path="/productdisplay" component={ProductDisplay} />
       </div>
     </Router>
   </Provider>
