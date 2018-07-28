@@ -39,9 +39,9 @@ class SideMenu extends Component {
         <div className="SideMenu mainBackground mainColor">
           <MuiThemeProvider>
             <Link to="/">
-              <a href="#" className="logo">
-                Title goes here
-              </a>
+            <a href="#" className="logo">
+              <span style={{color:'black'}}>Share</span><span id="watchPart">Goods</span>
+            </a>
             </Link>
             <div className="filterDiv">
               Semester<br />
@@ -108,7 +108,7 @@ class SideMenu extends Component {
         <MuiThemeProvider>
           <Link to="/">
             <a href="#" className="logo">
-              Books<span id="watchPart">Watch</span>
+            <span id="share">Share</span><span id="watchPart">Goods</span>
             </a>
           </Link>
           <div className="userInfoDiv">
