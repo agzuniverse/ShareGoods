@@ -33,7 +33,7 @@ const Searchbar = props => (
       </div>
       <div id="inputDiv">
         <form onSubmit={props.search} id="searchForm">
-          <input id="input2" type="text" placeholder="Search for Books" />
+          <input id="input2" type="text" placeholder="Search for anything" />
         </form>
       </div>
     </MuiThemeProvider>

@@ -7,15 +7,33 @@ import Auth from "./Auth";
 import { searchString } from "./redux/ActionCreators";
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import LoginForm from "./LoginForm";
+import RaisedButton from 'material-ui/RaisedButton';
 // import GetAuthDetails from "./GetAuthDetails";
 
 class Home extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      LoginVisibility: false,
+    };
+  }
   
   search = () => {
     const query = document.getElementById("input").value;
     this.props.updateSearchString(query);
     this.props.history.push("/search");
   };
+
+  
+  showLogin = () => {
+    this.setState({LoginVisibility: true});
+  }
+
+  closeLogin = () => {
+    this.setState({LoginVisibility: false});
+  }
 
   navigateOnAuthChange = path => {
     switch (path) {
@@ -36,9 +54,9 @@ class Home extends Component {
         <MuiThemeProvider>
           <div className="Container">
             <div className="topWrapper">
-              <span id="button">
-                <Auth navigateOnAuthChange={this.navigateOnAuthChange} />
-              </span>
+              <div id="button">
+                <RaisedButton onClick={this.showLogin} primary={true} label="Login" />
+              </div>
               <center>
                 <h1 id="head">
                   Share<span class="green">Goods</span>
@@ -63,6 +81,7 @@ class Home extends Component {
             </div>
           </div>
         </MuiThemeProvider>
+        <LoginForm visible={this.state.LoginVisibility} closer={this.closeLogin}/>
       </div>
     );
   }
