@@ -121,9 +121,9 @@ class SideMenu extends Component {
             />
             <br />
             <br />
-            {this.props.userDetails.name}
+            {/* {this.props.userDetails.name} */}
             <br />
-            {this.props.userDetails.email}
+            {/* {this.props.userDetails.email} */}
             <br />
             <Auth navigateOnAuthChange={this.props.navigateOnAuthChange} />
           </div>

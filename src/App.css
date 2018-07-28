@@ -99,10 +99,10 @@ footer {
 }
 
 .mainBackground {
-  background: rgb(4, 47, 78);
+  background: white;
 }
 .mainBackground-addProductPage {
-  background: rgb(4, 47, 78);
+  background-color: rgb(255, 255, 255);
   height: 100vh;
 }
 .mainColor {
@@ -263,31 +263,33 @@ footer {
   font-size: 20px;
 }
 
+.ruler {
+  color: rgba(0, 0, 0, 0.4);
+  width: 80%;
+}
+
 .centerTotal {
   height: auto;
   padding: 20px 0px 20px 0px;
+  margin-top: 100px;
   width: 85%;
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 20px rgb(66, 66, 66);
-  background-color: rgb(236, 239, 241);
+  background-color: rgb(255, 255, 255);
+
 }
 
 .sellWrapper {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  margin-top: 10px;
 }
 
 #centerTotal {
   position: relative;
   left: 0;
   right: 0;
-  margin: auto;
   /* overflow-y: hidden; */
   height: 85vh;
   padding: 20px 0px 20px 0px;
@@ -297,8 +299,6 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 20px rgb(66, 66, 66);
-  background-color: rgb(236, 239, 241);
 }
 
 #button {
@@ -332,9 +332,13 @@ footer {
   color: rgba(0, 0, 0, 0.87);
 }
 
+#share {
+  color: white;
+}
+
 .appbar {
-  background-color: rgb(33, 33, 33);
-  position: sticky;
+  background: rgba(0, 0, 0, 0.87);
+  position: fixed;
   top: 0px;
   width: 100vw;
   text-align: center;
@@ -343,6 +347,7 @@ footer {
   align-items: center;
   justify-content: center;
   box-shadow: 2px 2px 15px rgb(66, 66, 66);
+  z-index: 999;
 }
 
 .info {
@@ -355,8 +360,14 @@ footer {
   height: 5%;
 }
 
+.vr {
+  border-right: black;
+  border-width: 2px;
+  height: 50vh;
+  width: 1px;
+}
+
 .imageHolder {
-  background-color: rgb(236, 239, 241);
   width: 25%;
   height: 75vh;
   position: absolute;
@@ -404,8 +415,6 @@ footer {
   border-radius: 2%;
   padding-left: 1.7em;
   padding-right: 1.7em;
-  box-shadow: 2px 2px 20px rgb(66, 66, 66);
-  background-color: rgb(236, 239, 241);
 }
 
 #textName {
@@ -659,7 +668,6 @@ footer {
     display: none;
   }
   #centerTotal {
-    height: 180vh;
     width: 90%;
   }
 
@@ -749,16 +757,6 @@ footer {
   #input {
     top: 14.3em;
     width: 80%;
-  }
-
-  .mainBackground {
-    height: 180vh;
-  }
-  .sellWrapper {
-    height: 180vh;
-  }
-  .centerTotal {
-    height: 180vh;
   }
 }
 

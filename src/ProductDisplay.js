@@ -62,7 +62,7 @@ class ProductDisplay extends Component {
           <div>
             <div className="appbar">
               <a href="/" className="logo">
-                Title goes here
+                <span id="share">Share</span><span id="watchPart">Goods</span>
               </a>
               {!this.props.uid ? (
                 <Link to="/login">
@@ -79,6 +79,7 @@ class ProductDisplay extends Component {
               <div className="imageHolder">
                 <img id="textbook" src={imageurl} alt="Fetching error" />
               </div>
+              <div className="vr" />
 
               <div className="detailCard">
                 <div id="textName">{title}</div>
