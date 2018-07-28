@@ -219,10 +219,11 @@ class AddProduct extends Component {
                   floatingLabelText="Enter year of purchase"
                 />
                 <br />
-                <Checkbox label="No wear and tear" />
-                <Checkbox label="No wear and tear" />
-                <Checkbox label="Is warranty applicable to this item?" />     
-
+                <div class="justAlign">
+                  <Checkbox label="No wear and tear" />
+                  <Checkbox label="No wear and tear" />
+                  <Checkbox label="Is warranty applicable to this item?" />     
+                </div>
                 <TextField
                   style={{ width: "65%" }}
                   id="bookPrice"
