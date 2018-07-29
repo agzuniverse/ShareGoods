@@ -51,7 +51,6 @@ class SideMenu extends Component {
                 value={this.state.categoryValue}
                 autoWidth={false}
                 className="dropDownMenu"
-                labelStyle={{ color: "rgba(255,255,255,0.87)" }}
               >
                 <MenuItem value="Any category" primaryText="Any category" />
                 <MenuItem value="Travel" primaryText="Travel" />

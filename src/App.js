@@ -8,6 +8,7 @@ import ProductDisplay from "./ProductDisplay";
 import SearchPage from "./searchPage";
 import Userpage from "./Userpage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import PoolDisplay from "./PoolDisplay";
 
 const App = () => (
   <Provider store={Store}>
@@ -18,6 +19,7 @@ const App = () => (
         <Route path="/addproduct" component={AddProduct} />
         <Route path="/productdisplay" component={ProductDisplay} />
         <Route path="/Userpage" component={Userpage} />
+        <Route path="/pooldisplay" component={PoolDisplay} />
       </div>
     </Router>
   </Provider>

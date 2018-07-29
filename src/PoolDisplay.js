@@ -46,12 +46,8 @@ class ProductDisplay extends Component {
   render() {
     const {
       image,
-      title,
       category,
       price,
-      max_duration,
-      description,
-      active
     } = this.props.location.state;
 
     // const {
@@ -86,21 +82,10 @@ class ProductDisplay extends Component {
               </div>
 
               <div className="detailCard">
-                <h2>{title}</h2>
-                <div id="category">Category: {category}</div>
+                <h2>Recommended pool for {category}</h2>
                 <div id="amount">
                   <span id="priceTag">Price</span>: Rs {price} per day
-                </div>
-                <div className="availability">
-                  Availability: {active ? 'Available' : 'Not available'}
-                </div>
-                <br/><br/>
-                <div className="details">
-                  Duration: {max_duration}
-                </div><br/><br/>
-                <div className="sellerButtons">
-                    <RaisedButton label="Rent now" backgroundColor="lawngreen" onClick={()=>{this.showPaymentSheet()}}/>
-                </div>
+                </div><br/>
               </div>
 
               <br/>
@@ -108,31 +93,36 @@ class ProductDisplay extends Component {
               <hr className="ruler" />
               <br />
 
-              <div style={{color: 'rgba(0,0,0,0.87)', flexDirection: 'column', width: '80%', marginLeft: '150px'}}>
-                    {/* <h2>Owner: {username}</h2> */}
-                    <br/>
-                    <p>{description}</p>
-                    <br/>
-                    {/* <p>Is warranty applicable? {warranty? 'Yes' : 'No'} </p>
-                    <p>Is there wear and tear? {weartear? 'Yes' : 'No'} </p>
-                    <p>Is warranty applicable? {warranty? 'Yes' : 'No'} </p> */}
-                    <TextField
-                      style={{ width: "65%" }}
-                      floatingLabelText="Do you have a question?"
-                      multiLine={true}
-                      rows={2}
-                    />
-                    <br />
-                    <br /><br/><br/>
-              </div>
+            </div>
 
+            <div id="centerTotal productDisplayDiv">
+
+                <div className="imageHolder">
+                <img id="productItemDisplay" src={image} alt="Fetching error" />
+                </div>
+
+                <div className="detailCard">
+                <h2>Recommended pool for {category}</h2>
+                <div id="amount">
+                    <span id="priceTag">Price</span>: Rs {price} per day
+                </div><br/>
+                </div>
+
+                <br/>
+                <div style={{height: '100px'}} />
+                <hr className="ruler" />
+                <br />
+
+            </div>
+
+            <div className="sellerButtons centerTotal" style={{marginLeft: '300px'}}>
+                    <RaisedButton label="Rent now" backgroundColor="lawngreen" onClick={()=>{this.showPaymentSheet()}}/>
             </div>
           </div>
         ) : (
           <h1 style={{ color: "white" }}>403 Forbidden</h1>
         )}
       </div>
-      <PoolDiv image={null} category={category}/>
       <PaymentSheet visible={this.state.PaymentSheetVisibility} price={price} closer={this.closePayment}/>
       </MuiThemeProvider>
     );

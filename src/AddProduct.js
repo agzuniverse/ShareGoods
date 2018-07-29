@@ -221,7 +221,6 @@ class AddProduct extends Component {
                 <br />
                 <div class="justAlign">
                   <Checkbox label="No wear and tear" />
-                  <Checkbox label="No wear and tear" />
                   <Checkbox label="Is warranty applicable to this item?" />     
                 </div>
                 <TextField
