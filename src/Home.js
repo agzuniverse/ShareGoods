@@ -32,7 +32,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div class="backGrnd">
         <MuiThemeProvider>
           <div className="Container">
             <div className="topWrapper">
