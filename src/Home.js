@@ -65,7 +65,7 @@ class Home extends Component {
                 </h1>
               </center>
               <div id="homeScreenButtons">
-                <button  class="buttonWithBorder" onClick={()=>{}}>Travel </button>
+                <button  class="buttonWithBorder" onClick={()=>{this.props.history.push('/pooldisplay')}}>Travel </button>
                 <button  class="buttonWithBorder" onClick={()=>{}}>Construction</button>
                 <button class="buttonWithBorder" onClick={()=>{}}>Gardening</button>
                 <button class="buttonWithBorder" onClick={()=>{}}>Maintenance</button>

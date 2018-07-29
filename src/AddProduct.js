@@ -27,6 +27,11 @@ class AddProduct extends Component {
     };
   }
 
+  handleFileChange = (event) => {
+      var output = document.getElementById('uploadFrame');
+      output.src = URL.createObjectURL(event.target.files[0]);
+  }
+
   setInvalid = field => {
     const { invalid } = this.state;
     invalid.push(field);
@@ -152,7 +157,7 @@ class AddProduct extends Component {
                   <MenuItem value="Choose category" primaryText="Choose category" />
                 </DropDownMenu>
                 <br />
-                <img src="#" id="uploadFrame" />
+                <img src="#" id="uploadFrame" style={{height: '200px', width: '160px'}} />
                 <br />
                 <RaisedButton
                   label="Choose Image"
@@ -164,6 +169,7 @@ class AddProduct extends Component {
                     type="file"
                     accept="image/*"
                     className="hiddenFileInput"
+                    onChange={this.handleFileChange}
                   />
                 </RaisedButton>
                 <br/>
