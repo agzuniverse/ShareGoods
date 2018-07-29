@@ -81,7 +81,7 @@ class ProductDisplay extends Component {
                 <h1 style={{fontSize: '72px'}}>+</h1>
                 <div><img id="productItemDisplay" src={image2} alt="Fetching error" /><p style={{textAlign:'center', width:'100%'}}>Hiking kit</p></div>
                 <h1 style={{fontSize: '72px'}}>+</h1>
-                <div><img id="productItemDisplay" src={image3} alt="Fetching error" /><p style={{textAlign:'center', width:'100%'}}>Tent</p></div>
+                <div><img id="productItemDisplay" src={image3} alt="Fetching error" /><p style={{textAlign:'center', width:'100%'}}>GoPro</p></div>
               </div>
               
 
