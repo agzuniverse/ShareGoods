@@ -19,8 +19,24 @@ class SearchPage extends Component {
 
   componentWillMount() {
     if (this.props.query !== null) {
-    //   this.performSearch(this.props.query);
+       this.performSearch(this.props.query);
     }
+  }
+
+  performSearch = query => {
+    // fetch('https://jsonplaceholder.typicode.com/posts/1')
+    // .then(response => response.json())
+    // .then(json => console.log(json))
+    fetch(`/api/products/search/?search=${query}`).then((res) => {
+      console.log(res);
+      return res.json();
+    }).then((data) => {
+      console.log(data);
+      this.setState({
+        searchResults: data,
+        loaded: true
+      });
+    });
   }
 
   search = e => {
@@ -30,33 +46,33 @@ class SearchPage extends Component {
 
   render() {
     const { searchResults, loaded } = this.state;
-    // const { semFilter, branchFilter } = this.props;
+    const { catFilter, branchFilter } = this.props;
 
-    // const books = Object.keys(searchResults).map(key => {
-    //   if (
-    //     semFilter === "Any semester" &&
-    //     branchFilter === "Any branch"
-    //   )
-    //     return <ProductDiv details={searchResults[key]} />;
-    //   else if (
-    //     semFilter !== "Any semester" &&
-    //     branchFilter === "Any branch"
-    //   ) {
-    //     if (searchResults[key].semester === semFilter)
-    //       return <ProductDiv details={searchResults[key]} />;
-    //   } else if (
-    //     semFilter === "Any semester" &&
-    //     branchFilter !== "Any branch"
-    //   ) {
-    //     if (searchResults[key].branch === branchFilter)
-    //       return <ProductDiv details={searchResults[key]} />;
-    //   } else if (
-    //     searchResults[key].branch === branchFilter &&
-    //     searchResults[key].semester === semFilter
-    //   )
-    //     return <ProductDiv details={searchResults[key]} />;
-    //   return null;
-    // });
+    const products = Object.keys(searchResults).map(key => {
+      // if (
+      //   catFilter === "Any category" &&
+      //   branchFilter === "Any branch"
+      // )
+      //   return <ProductDiv details={searchResults[key]} />;
+      // else if (
+      //   catFilter !== "Any category" &&
+      //   branchFilter === "Any branch"
+      // ) {
+      //   if (searchResults[key].category === catFilter)
+      //     return <ProductDiv details={searchResults[key]} />;
+      // } else if (
+      //   catFilter === "Any category" &&
+      //   branchFilter !== "Any branch"
+      // ) {
+      //   if (searchResults[key].branch === branchFilter)
+      //     return <ProductDiv details={searchResults[key]} />;
+      // } else if (
+      //   searchResults[key].branch === branchFilter &&
+      //   searchResults[key].category === catFilter
+      // )
+        return <ProductDiv details={searchResults[key]} />;
+      // return null;
+    });
     return (
       <div className="App">
         <SideMenu isFilter />
@@ -64,7 +80,7 @@ class SearchPage extends Component {
           <Searchbar search={this.search} />
           <div id="productList">
             {loaded ? (
-              null
+              products
             ) : (
               <div id="loading">
                 <MuiThemeProvider>

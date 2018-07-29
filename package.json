@@ -26,6 +26,11 @@
     "prettier": "./node_modules/.bin/prettier --write ./src/*.js && ./node_modules/.bin/prettier --write ./src/*.css && ./node_modules/.bin/prettier --write ./src/**/*.js && ./node_modules/.bin/prettier --write ./src/**/*.css",
     "eject": "react-scripts eject"
   },
+  "proxy" : {
+    "/api/*": {
+      "target":"http://localhost:8000"
+    }
+  },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
     "enzyme": "^3.3.0",

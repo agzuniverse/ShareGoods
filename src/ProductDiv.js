@@ -11,13 +11,13 @@ class ProductDiv extends Component {
   }
 
   render() {
-    const { imageurl, title, category, price } = this.props.details;
+    const { image, title, category, price, description, max_duration } = this.props.details;
 
     return (
       <div className="ProductDiv">
         <MuiThemeProvider>
           <div className="imgDiv">
-            <img src={imageurl} id="productImg" alt="" />
+            <img src={image} id="productImg" alt="" />
           </div>
           <Link
             to={{ pathname: "/productdisplay", state: this.props.details }}
@@ -31,6 +31,7 @@ class ProductDiv extends Component {
               <br />
               <span id="price">Rs {price}</span>
               <br />
+              <span id="price">Maximum rent duration is {max_duration} days</span>
               <br />
             </div>
           </Link>

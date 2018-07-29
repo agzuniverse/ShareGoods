@@ -6,6 +6,7 @@ import AddProduct from "./AddProduct";
 import Home from "./Home";
 import ProductDisplay from "./ProductDisplay";
 import SearchPage from "./searchPage";
+import Userpage from "./Userpage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
         <Route path="/search" component={SearchPage} />
         <Route path="/addproduct" component={AddProduct} />
         <Route path="/productdisplay" component={ProductDisplay} />
+        <Route path="/Userpage" component={Userpage} />
       </div>
     </Router>
   </Provider>

@@ -63,10 +63,10 @@ class Home extends Component {
                 </h1>
               </center>
               <div id="homeScreenButtons">
-                <button  class="buttonWithBorder" onClick={()=>{}}>Adventure </button>
+                <button  class="buttonWithBorder" onClick={()=>{}}>Travel </button>
                 <button  class="buttonWithBorder" onClick={()=>{}}>Construction</button>
-                <button class="buttonWithBorder" onClick={()=>{}}>test</button>
-                <button class="buttonWithBorder" onClick={()=>{}}>test</button>
+                <button class="buttonWithBorder" onClick={()=>{}}>Gardening</button>
+                <button class="buttonWithBorder" onClick={()=>{}}>Maintenance</button>
               </div>
               <form onSubmit={this.search}>
                 <i class="material-icons">search</i>
@@ -74,9 +74,6 @@ class Home extends Component {
               </form>
               <div id="tagLine">
                 Peer to Peer rental platform that delivers to <br/>your doorstep
-              </div>
-              <div id="bottom">
-                  <span>FOOTER GOES HERE</span>
               </div>
             </div>
           </div>

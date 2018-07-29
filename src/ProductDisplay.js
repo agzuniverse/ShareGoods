@@ -43,54 +43,45 @@ class ProductDisplay extends Component {
   }
 
   render() {
-    // const {
-    //   imageurl,
-    //   title,
-    //   category,
-    //   price,
-    //   username,
-    //   contact,
-    //   email
-    // } = this.props.location.state;
-
     const {
-        imageurl,
-        title,
-        category,
-        price,
-        username,
-        contact,
-        email,
-        duration,
-        warranty,
-        weartear,
-        additionalInfo
-      } = this.state;
+      image,
+      title,
+      category,
+      price,
+      max_duration,
+      description,
+      active
+    } = this.props.location.state;
+
+    // const {
+    //     imageurl,
+    //     title,
+    //     category,
+    //     price,
+    //     username,
+    //     contact,
+    //     email,
+    //     duration,
+    //     warranty,
+    //     weartear,
+    //     additionalInfo
+    //   } = this.state;
 
     return (
     <MuiThemeProvider>
       <div className="mainBackground sellWrapper ">
-        {/* {this.props.location.state ? ( */}
+        {this.props.location.state ? (
           <div>
             <div className="appbar">
               <a href="/" className="logo">
                 <span id="share">Share</span><span id="watchPart">Goods</span>
               </a>
-              {!this.props.uid ? (
-                <Link to="/login">
-                  <button id="logoutAppBar">Login</button>
-                </Link>
-              ) : (
-                <Link to="/user">
-                  <button id="logoutAppBar">Profile</button>
-                </Link>
-              )}
             </div>
 
             <div id="centerTotal productDisplayDiv">
 
               <div className="imageHolder">
-                <img id="productItemDisplay" src={imageurl} alt="Fetching error" />
+                <img id="productItemDisplay" src={image} alt="Fetching error" />
               </div>
 
               <div className="detailCard">
@@ -100,11 +91,11 @@ class ProductDisplay extends Component {
                   <span id="priceTag">Price</span>: Rs {price} per day
                 </div>
                 <div className="availability">
-                  Availability: Available
+                  Availability: {active ? 'Available' : 'Not available'}
                 </div>
                 <br/><br/>
                 <div className="details">
-                  Duration: {duration}
+                  Duration: {max_duration}
                 </div><br/><br/>
                 <div className="sellerButtons">
                     <RaisedButton label="Rent now" backgroundColor="lawngreen" onClick={()=>{this.showPaymentSheet()}}/>
@@ -117,13 +108,13 @@ class ProductDisplay extends Component {
               <br />
 
               <div style={{color: 'rgba(0,0,0,0.87)', flexDirection: 'column', width: '80%', marginLeft: '150px'}}>
-                    <h2>Owner: {username}</h2>
+                    {/* <h2>Owner: {username}</h2> */}
                     <br/>
-                    <p>{additionalInfo}</p>
+                    <p>{description}</p>
                     <br/>
-                    <p>Is warranty applicable? {warranty? 'Yes' : 'No'} </p>
+                    {/* <p>Is warranty applicable? {warranty? 'Yes' : 'No'} </p>
                     <p>Is there wear and tear? {weartear? 'Yes' : 'No'} </p>
-                    <p>Is warranty applicable? {warranty? 'Yes' : 'No'} </p>
+                    <p>Is warranty applicable? {warranty? 'Yes' : 'No'} </p> */}
                     <TextField
                       style={{ width: "65%" }}
                       floatingLabelText="Do you have a question?"
@@ -136,9 +127,9 @@ class ProductDisplay extends Component {
 
             </div>
           </div>
-        {/* ) : (
+        ) : (
           <h1 style={{ color: "white" }}>403 Forbidden</h1>
-        )} */}
+        )}
       </div>
       <PaymentSheet visible={this.state.PaymentSheetVisibility} price={price} closer={this.closePayment}/>
       </MuiThemeProvider>

@@ -4,6 +4,7 @@ import {
   SET_NAME,
   SET_EMAIL,
   SEARCH_STRING,
+  CAT_FILTER,
 } from "./Actions";
 
 export const testRedux = text => ({
@@ -29,4 +30,9 @@ export const setGlobalEmail = email => ({
 export const searchString = query => ({
   type: SEARCH_STRING,
   query
+});
+
+export const setCatFilter = cat => ({
+  type: CAT_FILTER,
+  cat
 });
