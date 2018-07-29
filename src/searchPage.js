@@ -42,6 +42,7 @@ class SearchPage extends Component {
   search = e => {
     e.preventDefault();
     const query = document.getElementById("input2").value;
+    this.performSearch(query);
   };
 
   render() {

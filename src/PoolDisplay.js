@@ -84,7 +84,7 @@ class ProductDisplay extends Component {
               <div className="detailCard">
                 <h2>Recommended pool for {category}</h2>
                 <div id="amount">
-                  <span id="priceTag">Price</span>: Rs {price} per day
+                  <span id="priceTag">Pool price</span>: Rs 180 per day
                 </div><br/>
               </div>
 
@@ -92,26 +92,6 @@ class ProductDisplay extends Component {
               <div style={{height: '100px'}} />
               <hr className="ruler" />
               <br />
-
-            </div>
-
-            <div id="centerTotal productDisplayDiv">
-
-                <div className="imageHolder">
-                <img id="productItemDisplay" src={image} alt="Fetching error" />
-                </div>
-
-                <div className="detailCard">
-                <h2>Recommended pool for {category}</h2>
-                <div id="amount">
-                    <span id="priceTag">Price</span>: Rs {price} per day
-                </div><br/>
-                </div>
-
-                <br/>
-                <div style={{height: '100px'}} />
-                <hr className="ruler" />
-                <br />
 
             </div>
 
@@ -123,7 +103,7 @@ class ProductDisplay extends Component {
           <h1 style={{ color: "white" }}>403 Forbidden</h1>
         )}
       </div>
-      <PaymentSheet visible={this.state.PaymentSheetVisibility} price={price} closer={this.closePayment}/>
+      <PaymentSheet visible={this.state.PaymentSheetVisibility} price={180} closer={this.closePayment}/>
       </MuiThemeProvider>
     );
   }

@@ -63,7 +63,12 @@ class AddProduct extends Component {
       const year = document.getElementById("yearOfPurchase").value;
       const desc = document.getElementById("itemDescription").value;
       const { category } = this.state;
-      const file = document.getElementById("fileUpload").files[0];
+      const file = document.getElementById("fileUpload").files[0]; 
+      let reader = new FileReader();
+      // reader.readAsDataURL(file);
+      // reader.onload = (e) => {
+      //   document.getElementById("uploadFrame").src = e.target.result;
+      // }
       this.state.invalid = [];
 
       if (!this.state.invalid.length === 0) {
@@ -100,8 +105,8 @@ class AddProduct extends Component {
 
   render() {
     
-    const minValue =100;
-    const maxValue=100;
+    const minValue =150;
+    const maxValue=230;
 
     const actions = [
       <FlatButton
@@ -146,6 +151,8 @@ class AddProduct extends Component {
                   <MenuItem value="Maintenance" primaryText="Maintenance" />
                   <MenuItem value="Choose category" primaryText="Choose category" />
                 </DropDownMenu>
+                <br />
+                <img src="#" id="uploadFrame" />
                 <br />
                 <RaisedButton
                   label="Choose Image"

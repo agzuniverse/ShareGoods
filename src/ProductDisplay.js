@@ -142,7 +142,7 @@ class ProductDisplay extends Component {
           <h1 style={{ color: "white" }}>403 Forbidden</h1>
         )}
       </div>
-      <PoolDiv image={null} category={category}/>
+      <PoolDiv image={image} category={category}/>
       <PaymentSheet visible={this.state.PaymentSheetVisibility} price={price} closer={this.closePayment}/>
       </MuiThemeProvider>
     );

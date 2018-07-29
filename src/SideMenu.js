@@ -59,24 +59,6 @@ class SideMenu extends Component {
                 <MenuItem value="Gardening" primaryText="Gardening" />
               </DropDownMenu>
               <br />
-              Branch<br />
-              <DropDownMenu
-                onChange={this.branchChange}
-                value={this.state.branchValue}
-                autoWidth={false}
-                className="dropDownMenu"
-                labelStyle={{ color: "rgba(255,255,255,0.87)" }}
-              >
-                <MenuItem value="Any branch" primaryText="Any branch" />
-                <MenuItem
-                  value="Computer Science"
-                  primaryText="Computer Science"
-                />
-                <MenuItem value="Electrical" primaryText="Electrical" />
-                <MenuItem value="Electronics" primaryText="Electronics" />
-                <MenuItem value="Mechanical" primaryText="Mechanical" />
-                <MenuItem value="Civil" primaryText="Civil" />
-              </DropDownMenu>
             </div>
             <div className="linksDiv">
               {this.props.uid !== "" && this.props.uid !== null ? (
@@ -86,13 +68,14 @@ class SideMenu extends Component {
                   </RaisedButton>
                 </Link>
               ) : (
+              <Link to='/addproduct'>
                 <RaisedButton
                   backgroundColor="lawngreen"
                   fullWidth
-                  onClick={this.login}
                 >
                   Give item for rent
                 </RaisedButton>
+              </Link>
               )}
             </div>
           </MuiThemeProvider>
@@ -115,8 +98,8 @@ class SideMenu extends Component {
             {/* {this.props.userDetails.email} */}
             <br />
             <br />
-            <FlatButton label='My items' primary={true}/>
-            <FlatButton label="Items I've rented" primary={true} />
+            <FlatButton label='My items' primary={true} fullWidth={true} />
+            <FlatButton label="Items I've rented" primary={true} fullWidth={true} />
           </div>
           <br />
           <div className="linksDiv">
