@@ -9,6 +9,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import PaymentSheet from './PaymentSheet';
 import TextField from 'material-ui/TextField';
+import Checkbox from "material-ui/Checkbox";
 
 class ProductDisplay extends Component {
   constructor(props) {
@@ -45,7 +46,6 @@ class ProductDisplay extends Component {
 
   render() {
     const {
-      image,
       title,
       category,
       price,
@@ -53,6 +53,9 @@ class ProductDisplay extends Component {
       description,
       active
     } = this.props.location.state;
+
+    let image = this.props.location.state.image;
+    image = image.replace('3000', '8000');
 
     // const {
     //     imageurl,
@@ -98,6 +101,13 @@ class ProductDisplay extends Component {
                 <div className="details">
                   Duration: {max_duration}
                 </div><br/><br/>
+                
+                <div class="justAlign">
+                  <Checkbox label="No wear and tear" checked={true}/>
+                  <Checkbox label="Is warranty applicable to this item?" checked={true} />
+                  <Checkbox label="Covered by insurance?" checked={true}/>     
+                </div>
+                <br />
                 <div className="sellerButtons">
                     <RaisedButton label="Rent now" backgroundColor="lawngreen" onClick={()=>{this.showPaymentSheet()}}/>
                 </div>

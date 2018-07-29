@@ -25,6 +25,8 @@ class PaymentSheet extends Component {
     // const { imageurl, title, category, price } = this.props.details;
     const { visible, price, closer } = this.props;
     const totalPrice = price * this.state.days;
+    const contact_address = 'Aswathy Nivas, Nettoor (P.O), Ernakulam, 682020';
+    const contact_number = '8089967292'
 
     return (
         <div onClick={closer}>
@@ -37,8 +39,9 @@ class PaymentSheet extends Component {
                             onInit={this.handleSelectRange}
                             onChange={this.handleSelectRange}
                         />
-                        <br/><br/>
                         <h3>Total price: {totalPrice} </h3>
+                        <p>Address: {contact_address}</p>
+                        <p>Contact: {contact_number}</p>
                         <RaisedButton label="Proceed to payment" primary={true}/>
                     </div>
                 </MuiThemeProvider>

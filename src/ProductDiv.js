@@ -11,8 +11,9 @@ class ProductDiv extends Component {
   }
 
   render() {
-    const { image, title, category, price, description, max_duration } = this.props.details;
-
+    const { title, category, price, description, max_duration } = this.props.details;
+    let image = this.props.details.image;
+    image = image.replace('3000', '8000');
     return (
       <div className="ProductDiv">
         <MuiThemeProvider>

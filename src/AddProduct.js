@@ -13,6 +13,7 @@ import Checkbox from "material-ui/Checkbox";
 import Dialog from "material-ui/Dialog";
 import CircularProgress from "material-ui/CircularProgress";
 import DatePicker from "material-ui/DatePicker";
+import axios from 'axios';
 
 class AddProduct extends Component {
   constructor(props) {
@@ -57,69 +58,43 @@ class AddProduct extends Component {
   };
 
   handeSubmit = () => {
-    if (!this.props.uid) {
-      alert("You need to log in to add a book!");
-    } else {
-      const title = document.getElementById("bookTitle").value;
-      const author = document.getElementById("bookAuthor").value;
-      const price = document.getElementById("bookPrice").value;
-      const contact = document.getElementById("mobile").value;
-      const userClass = document.getElementById("userClass").value;
-      const { isOnWa, year, branch } = this.state;
+      const title = document.getElementById("itemTitle").value;
+      const price = document.getElementById("itemPrice").value;
+      const year = document.getElementById("yearOfPurchase").value;
+      const desc = document.getElementById("itemDescription").value;
+      const { category } = this.state;
       const file = document.getElementById("fileUpload").files[0];
-      const tagArray = title.split(" ").concat(author.split(" "));
-      const tags = {};
-      tagArray.forEach(e => {
-        tags[e.toLowerCase()] = true;
-      });
-
       this.state.invalid = [];
-      if (title.replace(/\s/g, "") === "")
-        this.setInvalid("Title field is blank");
-
-      if (author.replace(/\s/g, "") === "")
-        this.setInvalid("Author field is blank");
-
-      if (!(parseFloat(price) > 0))
-        this.setInvalid("Price should be numeric and >0.");
-
-      if (!(parseFloat(contact) > 0 && contact.length === 10))
-        this.setInvalid(
-          "Contact number is invalid. We only accept Indian Mobile Numbers. format eg: xxxxxxxxxx"
-        );
-
-      if (!(file && file.type.slice(0, 5) === "image"))
-        this.setInvalid("Image is invalid.");
 
       if (!this.state.invalid.length === 0) {
         console.log("Form field error");
         this.handleOpen();
       } else {
         const data = {
-          title,
-          author,
-          price,
-          contact,
-          userClass,
-          isOnWa,
+          Title: title,
+          Price: price,
+          Description: desc,
           uid: this.props.uid,
-          email: this.props.email,
-          username: this.props.name,
           year,
-          branch,
-          tags
+          Active: true,
+          Category: this.state.category,
         };
-
-        document.getElementById("bookTitle").value = "";
-        document.getElementById("bookAuthor").value = "";
-        document.getElementById("bookPrice").value = "";
-        document.getElementById("mobile").value = "";
-        document.getElementById("userClass").value = "";
+        console.log(data);
+        document.getElementById("itemTitle").value = "";
+        document.getElementById("itemPrice").value = "";
+        document.getElementById("yearOfPurchase").value = "";
+        document.getElementById("itemDescription").value = "";
         this.setState({
           uploading: true
         });
-        console.log("before uploading");
-      }
+        // fetch('/api/products/', {
+        //   method: 'POST',
+        //   body: JSON.stringify(data),
+        //   headers:{
+        //     'Content-Type': 'application/json'
+        //   }
+        // });
+        axios.post('/api/products', data)
     }
   };
 
@@ -155,7 +130,7 @@ class AddProduct extends Component {
                 </p>
                 <TextField
                   style={{ width: "65%" }}
-                  id="bookTitle"
+                  id="itemTitle"
                   floatingLabelText="Enter item name"
                 />
                 <DropDownMenu
@@ -171,25 +146,6 @@ class AddProduct extends Component {
                   <MenuItem value="Maintenance" primaryText="Maintenance" />
                   <MenuItem value="Choose category" primaryText="Choose category" />
                 </DropDownMenu>
-                <br />
-                <DropDownMenu
-                  onChange={this.subCatChange}
-                  style={{ width: "65%" }}
-                  value={this.state.subcategory}
-                  autoWidth={false}
-                  className="dropDownMenu"
-                >
-                  <MenuItem
-                    value="Computer Science"
-                    primaryText="Computer Science"
-                  />
-                  <MenuItem value="Electrical" primaryText="Electrical" />
-                  <MenuItem value="Electronics" primaryText="Electronics" />
-                  <MenuItem value="Mechanical" primaryText="Mechanical" />
-                  <MenuItem value="Civil" primaryText="Civil" />
-                  <MenuItem value="Choose subcategory" primaryText="Choose subcategory" />
-                </DropDownMenu>
-                <br />
                 <br />
                 <RaisedButton
                   label="Choose Image"
@@ -221,11 +177,11 @@ class AddProduct extends Component {
                 <br />
                 <div class="justAlign">
                   <Checkbox label="No wear and tear" />
-                  <Checkbox label="Is warranty applicable to this item?" />     
+                  <Checkbox label="Is warranty applicable to this item?" />    
                 </div>
                 <TextField
                   style={{ width: "65%" }}
-                  id="bookPrice"
+                  id="itemDescription"
                   floatingLabelText="Additional information"
                   multiLine={true}
                   rows={5}
