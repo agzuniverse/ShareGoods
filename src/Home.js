@@ -55,7 +55,9 @@ class Home extends Component {
           <div className="Container">
             <div className="topWrapper">
               <div id="button">
-                <RaisedButton onClick={this.showLogin} primary={true} label="Login" />
+              <span>
+                Kochi
+              </span>
               </div>
               <center>
                 <h1 id="head">
@@ -69,7 +71,6 @@ class Home extends Component {
                 <button class="buttonWithBorder" onClick={()=>{}}>Maintenance</button>
               </div>
               <form onSubmit={this.search}>
-                <i class="material-icons">search</i>
                 <input id="input" type="text" placeholder="Search for anything" />
               </form>
               <div id="tagLine">

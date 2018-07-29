@@ -26,9 +26,9 @@
     "prettier": "./node_modules/.bin/prettier --write ./src/*.js && ./node_modules/.bin/prettier --write ./src/*.css && ./node_modules/.bin/prettier --write ./src/**/*.js && ./node_modules/.bin/prettier --write ./src/**/*.css",
     "eject": "react-scripts eject"
   },
-  "proxy" : {
+  "proxy": {
     "/api/*": {
-      "target":"http://localhost:8000"
+      "target": "http://localhost:8000"
     }
   },
   "devDependencies": {
